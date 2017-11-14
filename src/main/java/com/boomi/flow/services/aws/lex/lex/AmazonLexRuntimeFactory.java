@@ -1,4 +1,4 @@
-package com.boomi.flow.services.aws.lex.guice;
+package com.boomi.flow.services.aws.lex.lex;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -6,14 +6,13 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.lexruntime.AmazonLexRuntime;
 import com.amazonaws.services.lexruntime.AmazonLexRuntimeClientBuilder;
-import com.google.inject.Provider;
+import com.boomi.flow.services.aws.lex.ApplicationConfiguration;
 
-public class AmazonLexRuntimeProvider implements Provider<AmazonLexRuntime> {
-    @Override
-    public AmazonLexRuntime get() {
+public class AmazonLexRuntimeFactory {
+    public static AmazonLexRuntime create(ApplicationConfiguration configuration) {
         AWSCredentials credentials = new BasicAWSCredentials(
-                System.getenv("AWS_ACCESS_KEY"),
-                System.getenv("AWS_SECRET_KEY")
+                configuration.getAccessKey(),
+                configuration.getSecretKey()
         );
 
         return AmazonLexRuntimeClientBuilder.standard()
