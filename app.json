@@ -3,15 +3,5 @@
   "description": "A plugin that allows your Boomi Flow apps to use the AWS Lex API",
   "repository": "https://github.com/manywho/service-aws-lex",
   "logo": "https://s3.amazonaws.com/manywho-service-assets/icons/service-aws-lex.png",
-  "keywords": ["manywho", "boomi", "aws", "lex", "plugin", "workflow", "ai"],
-  "env": {
-    "AWS_ACCESS_KEY": {
-      "description": "A valid AWS access key used to contact the Lex API",
-      "required": true
-    },
-    "AWS_SECRET_KEY": {
-      "description": "A valid AWS secret key used to contact the Lex API",
-      "required": true
-    }
-  }
+  "keywords": ["manywho", "boomi", "aws", "lex", "plugin", "workflow", "ai"]
 }
