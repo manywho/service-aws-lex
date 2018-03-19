@@ -16,7 +16,7 @@ public class AmazonLexRuntimeFactory {
         );
 
         return AmazonLexRuntimeClientBuilder.standard()
-                .withRegion(Regions.US_EAST_1)
+                .withRegion(Regions.fromName(configuration.getRegion()))
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .build();
     }
