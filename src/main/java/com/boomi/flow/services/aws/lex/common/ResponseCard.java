@@ -7,13 +7,13 @@ import java.util.List;
 
 @Type.Element(name = "Response Card")
 public class ResponseCard implements Type {
-    @Type.Property(name = "Content Type", contentType = ContentType.String)
+    @Type.Property(name = "Content Type", contentType = ContentType.String, bound = false)
     private String contentType;
 
-    @Type.Property(name = "Generic Attachments", contentType = ContentType.List)
+    @Type.Property(name = "Generic Attachments", contentType = ContentType.List, bound = false)
     private List<GenericAttachment> genericAttachments;
 
-    @Type.Property(name = "Version", contentType = ContentType.String)
+    @Type.Property(name = "Version", contentType = ContentType.String, bound = false)
     private String version;
 
     public ResponseCard(String contentType, List<GenericAttachment> genericAttachments, String version) {

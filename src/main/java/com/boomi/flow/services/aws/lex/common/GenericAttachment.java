@@ -5,16 +5,16 @@ import com.manywho.sdk.services.types.Type;
 
 @Type.Element(name = "Generic Attachment")
 public class GenericAttachment implements Type {
-    @Type.Property(name = "Title", contentType = ContentType.String)
+    @Type.Property(name = "Title", contentType = ContentType.String, bound = false)
     private String title;
 
-    @Type.Property(name = "Subtitle", contentType = ContentType.String)
+    @Type.Property(name = "Subtitle", contentType = ContentType.String, bound = false)
     private String subtitle;
 
-    @Type.Property(name = "Attachment Link URL", contentType = ContentType.String)
+    @Type.Property(name = "Attachment Link URL", contentType = ContentType.String, bound = false)
     private String attachmentLinkUrl;
 
-    @Type.Property(name = "Image URL", contentType = ContentType.String)
+    @Type.Property(name = "Image URL", contentType = ContentType.String, bound = false)
     private String imageUrl;
 
     public GenericAttachment(String title, String subtitle, String attachmentLinkUrl, String imageUrl) {

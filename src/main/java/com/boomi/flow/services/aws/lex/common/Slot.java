@@ -5,10 +5,10 @@ import com.manywho.sdk.services.types.Type;
 
 @Type.Element(name = "Slot", summary = "A map of key-value intent slots that Amazon Lex detected from the user input in a conversation")
 public class Slot implements Type {
-    @Property(name = "Key", contentType = ContentType.String)
+    @Property(name = "Key", contentType = ContentType.String, bound = false)
     private String key;
 
-    @Property(name = "Value", contentType = ContentType.String)
+    @Property(name = "Value", contentType = ContentType.String, bound = false)
     private String value;
 
     public Slot(String key, String value) {

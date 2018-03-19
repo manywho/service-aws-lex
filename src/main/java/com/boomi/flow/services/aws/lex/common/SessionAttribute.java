@@ -5,10 +5,10 @@ import com.manywho.sdk.services.types.Type;
 
 @Type.Element(name = "Session Attribute", summary = "A map of key-value pairs from Amazon Lex that represents session-specific context information")
 public class SessionAttribute implements Type {
-    @Type.Property(name = "Key", contentType = ContentType.String)
+    @Type.Property(name = "Key", contentType = ContentType.String, bound = false)
     private String key;
 
-    @Type.Property(name = "Value", contentType = ContentType.String)
+    @Type.Property(name = "Value", contentType = ContentType.String, bound = false)
     private String value;
 
     public SessionAttribute(String key, String value) {
