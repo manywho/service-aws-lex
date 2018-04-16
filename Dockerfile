@@ -13,4 +13,4 @@ EXPOSE 8080
 
 COPY --from=build /usr/src/app/target/service-lex.jar /usr/src/app/target/service-lex.jar
 
-CMD ["java", "-Xmx600m", "-jar", "/usr/src/app/target/service-lex.jar"]
+CMD ["java", "-Xmx400m", "-jar", "/usr/src/app/target/service-lex.jar"]
