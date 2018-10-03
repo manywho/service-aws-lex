@@ -3,10 +3,7 @@ package com.boomi.flow.services.aws.lex.post;
 import com.amazonaws.services.lexruntime.model.PostTextRequest;
 import com.amazonaws.services.lexruntime.model.PostTextResult;
 import com.boomi.flow.services.aws.lex.ApplicationConfiguration;
-import com.boomi.flow.services.aws.lex.common.GenericAttachment;
-import com.boomi.flow.services.aws.lex.common.ResponseCard;
-import com.boomi.flow.services.aws.lex.common.SessionAttribute;
-import com.boomi.flow.services.aws.lex.common.Slot;
+import com.boomi.flow.services.aws.lex.common.*;
 import com.boomi.flow.services.aws.lex.lex.AmazonLexRuntimeFactory;
 import com.boomi.flow.services.aws.lex.post.PostTextAction.Input;
 import com.boomi.flow.services.aws.lex.post.PostTextAction.Output;
@@ -66,11 +63,22 @@ public class PostTextCommand implements ActionCommand<ApplicationConfiguration, 
                         attachment.getTitle(),
                         attachment.getSubTitle(),
                         attachment.getAttachmentLinkUrl(),
-                        attachment.getImageUrl()
+                        attachment.getImageUrl(),
+                        convertButtons(attachment.getButtons())
                 )))
                 .map(attachments -> attachments.collect(Collectors.toList()))
                 .orElse(new ArrayList<>());
 
         return new ResponseCard(responseCard.getContentType(), genericAttachments, responseCard.getVersion());
+    }
+
+    private static List<Button> convertButtons(List<com.amazonaws.services.lexruntime.model.Button> responseButtons) {
+        return Optional.ofNullable(responseButtons)
+                .map(buttons -> buttons.stream().map(button -> new Button(
+                        button.getText(),
+                        button.getValue()
+                )))
+                .map(buttons -> buttons.collect(Collectors.toList()))
+                .orElse(new ArrayList<>());
     }
 }

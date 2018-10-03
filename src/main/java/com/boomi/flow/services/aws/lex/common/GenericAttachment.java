@@ -3,6 +3,8 @@ package com.boomi.flow.services.aws.lex.common;
 import com.manywho.sdk.api.ContentType;
 import com.manywho.sdk.services.types.Type;
 
+import java.util.List;
+
 @Type.Element(name = "Generic Attachment")
 public class GenericAttachment implements Type {
     @Type.Property(name = "Title", contentType = ContentType.String, bound = false)
@@ -17,11 +19,15 @@ public class GenericAttachment implements Type {
     @Type.Property(name = "Image URL", contentType = ContentType.String, bound = false)
     private String imageUrl;
 
-    public GenericAttachment(String title, String subtitle, String attachmentLinkUrl, String imageUrl) {
+    @Type.Property(name = "Buttons", contentType = ContentType.List, bound = false)
+    private List<Button> buttons;
+
+    public GenericAttachment(String title, String subtitle, String attachmentLinkUrl, String imageUrl, List<Button> buttons) {
         this.title = title;
         this.subtitle = subtitle;
         this.attachmentLinkUrl = attachmentLinkUrl;
         this.imageUrl = imageUrl;
+        this.buttons = buttons;
     }
 
     public String getTitle() {
@@ -38,5 +44,9 @@ public class GenericAttachment implements Type {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public List<Button> getButtons() {
+        return buttons;
     }
 }
