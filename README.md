@@ -1,8 +1,6 @@
 Boomi Flow AWS Lex Service
 ==================================
 
-> This service is currently in development, and not yet recommended for use in production environments
-
 [![Build Status](https://travis-ci.org/manywho/service-aws-lex.svg)](https://travis-ci.org/manywho/service-aws-lex)
 
 This service allows you to integrate your flows with the AWS Lex API.
